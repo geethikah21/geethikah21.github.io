@@ -42,13 +42,7 @@ As seen in the video, there are several scenarios where the agent positioning co
 
 After further discussion, the team agreed that it was better to use an analytical policy to position the goalie since this ensures consistent behavior. 
 
-Here is a recording of the finals of the Challenge Shield division during the 2024 competition, which the team won:
-
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include video.liquid path="https://www.youtube.com/live/JDZ6wihyELQ?si=i11QGg7V2soFw4gh&t=8101" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
+[Here](https://www.youtube.com/live/JDZ6wihyELQ?si=i11QGg7V2soFw4gh&t=8101) is a recording of the finals of the Challenge Shield division during the 2024 competition, which the team won.
 
 Using reinforcement learning would be better for decision-making aspects that isn't as clear-cut. If I had more time to improve the goalie behavior, I would work on training a policy to guide the goalie's attacking behavior when the ball is near the goal.
 
