@@ -1,80 +1,55 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
-img: assets/img/1.jpg
+title: RoboCup Standard Platform League
+description: Soccer Robot League
+img: assets/img/nao_robot.jpg
 importance: 3
-category: fun
+category: Research
+related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+I was part of the RoboCup soccer league competition team at UT Austin for two years. The [RoboCup Standard Platform League](https://spl.robocup.org/) is an annual competition. The aim of this competition is to advance the capabilities of robots to play soccer. This competition provides a testbed for a variety of problems including (but not limited to): multi-agent coordination, perception, localization, and motion.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+The robots used for the competition are [Nao humanoid robots](https://aldebaran.com/en/nao6/). The processor hardware does not include a GPU, so an underlying challenge is developing effective software that can run on the CPU alone.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+During my first year on the team, I worked on enhancing the field line detection module. Detecting and locating the lines on the field helps with robot localization. I utilized the the Hough transform provided by OpenCV to detect lines, then applied some additional distance/angle based heuristics to the output in order to produce more accurate detections.
+
+Here are some images showing the results:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/hough-1.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/hough-2.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    Results of applying the Hough transform to sample field images
 </div>
-<div class="row">
+
+During my second year on the team, the UT Austin team collaborated with the team at the University of Wisconsin, Madison. Our joint team worked to develop reinforcement learning policies for each of the soccer-playing agents (goalie, defender, attacker, etc.). I worked on developing a policy for the goalie, which involved tuning the reward function and deciding on the appropriate observation space. I also added functionality to randomly initialize the ball position at the beginning of each episode so that the goalie agent was exposed to a variety of scenarios.
+
+Below is a rendering of the trained policy. The reward function included several terms to guide goalie behavior, notably encourage the agent to face the ball, stay in the penalty box, and align itself between the ball and the goal.
+
+<div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include video.liquid path="assets/video/goalie_policy.mp4" class="img-fluid rounded z-depth-1" controls=true muted=true %}
     </div>
 </div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+As seen in the video, there are several scenarios where the agent positioning could have been better (e.g., when the ball is nearer to the corners of the field, the agent should have positioned itself to be closer to the goal post nearest to the ball in order to maximize the blocking potential).
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+After further discussion, the team agreed that it was better to use an analytical policy to position the goalie since this ensures consistent behavior. 
+
+Here is a recording of the finals of the Challenge Shield division during the 2024 competition, which the team won:
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include video.liquid path="https://www.youtube.com/live/JDZ6wihyELQ?si=i11QGg7V2soFw4gh&t=8101" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+Using reinforcement learning would be better for decision-making aspects that isn't as clear-cut. If I had more time to improve the goalie behavior, I would work on training a policy to guide the goalie's attacking behavior when the ball is near the goal.
 
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
+The team's work during the second year was published to the ICRA 2025 conference, {% cite labiosa2024reinforcement %}.
