@@ -40,7 +40,7 @@ Below is a rendering of the trained policy. The reward function included several
 
 As seen in the video, there are several scenarios where the agent positioning could have been better (e.g., when the ball is nearer to the corners of the field, the agent should have positioned itself to be closer to the goal post nearest to the ball in order to maximize the blocking potential).
 
-After further discussion, the team agreed that it was better to use an analytical policy to position the goalie since this ensures consistent behavior. 
+After further discussion, the team agreed that it was better to use an analytical policy to position the goalie since this seemed to achieve a behavior more consistent than what could be described with a reward function. 
 
 [Here](https://www.youtube.com/live/JDZ6wihyELQ?si=i11QGg7V2soFw4gh&t=8101) is a recording of the finals of the Challenge Shield division during the 2024 competition, which the team won.
 

@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Incoming MS Robotics Student at Carnegie Mellon University
+subtitle: MS Robotics Student at Carnegie Mellon University
 
 profile:
   align: right
@@ -23,7 +23,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hello! I am an incoming **MS Robotics** student at **Carnegie Mellon University**. I previously graduated with a **BS and MS in Computer Science** from **The University of Texas at Austin**. I also worked full-time at **Goldman Sachs** for a year.
+Hello! I am a **MS Robotics** student at **Carnegie Mellon University**. I previously graduated with a **BS and MS in Computer Science** from **The University of Texas at Austin**. I also worked full-time at **Goldman Sachs** for a year.
 
 Previously, I worked with Dr. Justin Hart on research within social navigation and human-robot interaction. I also worked with Dr. Peter Stone as part of the UT Austin Villa/[WisTex United](https://www.cs.utexas.edu/news/2024/robot-soccer-and-more-ut-students-best-competition-eindhoven) RoboCup [Standard Platform League](https://spl.robocup.org/) teams.
 
